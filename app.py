@@ -20,7 +20,7 @@ def playlist():
         jsonLoads = json.loads(jsonDumps)
         feeds = jsonLoads["feed"]["entry"]
         for j, i in enumerate(feeds ):
-            videoJson.update({str(j): {'videoTitle' : i['title'], 'videoID' : i['yt:videoid'], 'videolink': i['link']['@href'], 'channelName' : i['author']['name'], 'embedUrl' : 'https://www.youtube.com/embed/'+i['yt:videoid'], 'channelLink': i['author']['uri'], 'VideoPublished' : i['published'], 'Videoupdated' : i['updated'], 'VideoThumbnailUrl' : i['media:group']['media:thumbnail']['@url'], 'videoDescription': i['media:group']['media:description']}})
+            videoJson.update({str(j): {'videoTitle' : i['title'], 'videoID' : i['yt:videoid'], 'videolink': i['link']['@href'], 'channelName' : i['author']['name'], 'embedUrl' : 'https://www.youtube.com/embed/'+i['yt:videoid'], 'channelLink': i['author']['uri'], 'videoPublished' : i['published'], 'videoUpdated' : i['updated'], 'videoThumbnailUrl' : i['media:group']['media:thumbnail']['@url'], 'videoDescription': i['media:group']['media:description']}})
     return jsonify(videoJson)
 
 
@@ -38,14 +38,14 @@ def channel():
         jsonLoads = json.loads(jsonDumps)
         feeds = jsonLoads["feed"]["entry"]
         for j, i in enumerate(feeds):
-            videoJson.update({str(j): {'videoTitle' : i['title'], 'videoID' : i['yt:videoid'], 'videolink': i['link']['@href'], 'channelName' : i['author']['name'], 'embedUrl' : 'https://www.youtube.com/embed/'+i['yt:videoid'], 'channelLink': i['author']['uri'], 'VideoPublished' : i['published'], 'Videoupdated' : i['updated'], 'VideoThumbnailUrl' : i['media:group']['media:thumbnail']['@url'], 'videoDescription': i['media:group']['media:description']}})
+            videoJson.update({str(j): {'videoTitle' : i['title'], 'videoID' : i['yt:videoid'], 'videolink': i['link']['@href'], 'channelName' : i['author']['name'], 'embedUrl' : 'https://www.youtube.com/embed/'+i['yt:videoid'], 'channelLink': i['author']['uri'], 'videoPublished' : i['published'], 'videoUpdated' : i['updated'], 'videoThumbnailUrl' : i['media:group']['media:thumbnail']['@url'], 'videoDescription': i['media:group']['media:description']}})
     return jsonify(videoJson)
 
 @app.route('/')
 def index():
     return  f""" <h1> Youtube-xml to json convert with Flask REST API:</h1><br>
 { url_for('index') }/playlist/?id&lt;playlist_id&gt;<br>
-{ url_for('index') }/channelt/?id&lt;channel_id&gt; """
+{ url_for('index') }/channelt/?id&lt;channel_id&gt; <br> https://https://github.com/ozkan/youtube-feed-json"""
 
 if __name__ == '__main__':
     app.run(threaded=True, port=5000)
