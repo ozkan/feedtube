@@ -39,9 +39,6 @@ def channel():
             videoJson.update({str(j): {'videoTitle' : i['title'], 'videoID' : i['yt:videoid'], 'videolink': i['link']['@href'], 'channelName' : i['author']['name'], 'embedUrl' : 'https://www.youtube.com/embed/'+i['yt:videoid'], 'channelLink': i['author']['uri'], 'VideoPublished' : i['published'], 'Videoupdated' : i['updated'], 'VideoThumbnailUrl' : i['media:group']['media:thumbnail']['@url'], 'videoDescription': i['media:group']['media:description']}})
     return jsonify(videoJson)
 
-
-
-
 @app.route('/')
 def index():
     return  f""" <h1> Youtube-xml to json convert with Flask REST API:</h1><br>
