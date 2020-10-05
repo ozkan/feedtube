@@ -44,8 +44,8 @@ def channel():
 @app.route('/')
 def index():
     return  f""" <h1> Youtube-xml to json convert with Flask REST API:</h1><br>
-youtube-feed-json.herokuapp.com/playlist/?id&lt;playlist_id&gt;<br>
-youtube-feed-json.herokuapp.com/channel/?id&lt;channel_id&gt; <br> Author: <a href='https://github.com/ozkan/feedtube'>https://https://github.com/ozkan</a>"""
+feedtube.herokuapp.com/playlist/?id&lt;playlist_id&gt;<br>
+feedtube.herokuapp.com/channel/?id&lt;channel_id&gt; <br> Author: <a href='https://github.com/ozkan/feedtube'>https://https://github.com/ozkan</a>"""
 
 if __name__ == '__main__':
     app.run(threaded=True, port=5000)
